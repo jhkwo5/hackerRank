@@ -18,7 +18,7 @@ namespace hackerRank
             MiniMaxSum a = new MiniMaxSum();
            
 
-            //BirthdayCakeCandles t = new BirthdayCakeCandles();
+            BirthdayCakeCandles t = new BirthdayCakeCandles();
 
           
 
