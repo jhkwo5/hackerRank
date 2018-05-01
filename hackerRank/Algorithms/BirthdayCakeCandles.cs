@@ -8,6 +8,12 @@ namespace hackerRank
     class BirthdayCakeCandles
     {
 
+        /*
+         * 4
+         * 3 2 1 3
+         * 
+         */
+
         public BirthdayCakeCandles()
         {
             Console.WriteLine("TEST BIRTHDAY");

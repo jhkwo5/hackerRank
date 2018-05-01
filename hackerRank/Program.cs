@@ -10,17 +10,10 @@ namespace hackerRank
 
         static void Main(string[] args)
         {
+            //MiniMaxSum a = new MiniMaxSum();
+            //BirthdayCakeCandles t = new BirthdayCakeCandles();
 
-
-
-
-
-            MiniMaxSum a = new MiniMaxSum();
-           
-
-            BirthdayCakeCandles t = new BirthdayCakeCandles();
-
-          
+            LeftRotation a = new LeftRotation();
 
         }
 

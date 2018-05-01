@@ -7,16 +7,17 @@ namespace hackerRank
 {
     class MiniMaxSum
     {
+
+        /*
+         * 3 4 5 6
+        */
+
         public MiniMaxSum()
         {
             int[] arr = Array.ConvertAll(Console.ReadLine().Split(' '),
                                             arrTemp => Convert.ToInt32(arrTemp));
 
-
             MinMaxSum(arr);
-
-
-            
         }
 
         static void MinMaxSum(int[] arr)
