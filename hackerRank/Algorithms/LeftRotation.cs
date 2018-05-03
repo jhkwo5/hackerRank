@@ -29,9 +29,6 @@ namespace hackerRank
                 //Console.Write(temp[i]);
             }
 
-            temp[2] = 1;
-            temp[3] = 2;
-            temp[4] = 3;
             for (int i = 0; i < k; i++)
             {
                 temp[n - k + i] = a[i];
