@@ -13,10 +13,13 @@ namespace hackerRank
             //MiniMaxSum a = new MiniMaxSum();
             //BirthdayCakeCandles t = new BirthdayCakeCandles();
             //LeftRotation a = new LeftRotation();
-
+            //Staircase a = new Staircase();
             //BalancedBrackets a = new BalancedBrackets();
 
-            Staircase a = new Staircase();
+
+            Anagrams a = new Anagrams();
+
+            //test ts = new test();
 
         }
 
