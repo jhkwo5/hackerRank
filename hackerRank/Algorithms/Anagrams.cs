@@ -5,6 +5,12 @@ using System.Text;
 
 namespace hackerRank
 {
+    /***
+     * 
+     * Need to Do it again
+     * 
+     ***/
+     
     class Anagrams
     {
         public Anagrams()
@@ -60,7 +66,15 @@ namespace hackerRank
                 letterCounts[c - 'a']--;
             }
 
-             
+            int result = 0;
+            foreach(int i in letterCounts)
+            {
+                
+                result += Math.Abs(i);
+                Console.WriteLine(result);
+            }
+
+            Console.WriteLine(result);
             Console.WriteLine(letterCounts.Sum(x => Math.Abs(x)));
            
 
