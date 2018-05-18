@@ -23,10 +23,10 @@ namespace hackerRank
         public BalancedBrackets()
         {
             int t = Convert.ToInt32(Console.ReadLine());
+            string expression = Console.ReadLine();
 
             for (int a0 = 0; a0 < t; a0++)
             {
-                string expression = Console.ReadLine();
                 Console.WriteLine(testCase(expression)); 
             }
 

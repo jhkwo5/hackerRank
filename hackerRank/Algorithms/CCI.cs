@@ -10,12 +10,11 @@ namespace hackerRank
         public static void RemoveDuplicates(char[] str)
         {
             if (str == null) return;
-            int len = str.Length;
-            if (len < 2) return;
+            if (str.Length < 2) return;
 
             int tail = 1;
 
-            for(int i = 1; i < len; ++i)
+            for(int i = 1; i < str.Length; ++i)
             {
                 int j = 0;
                 for (j = 0; j < tail; ++j)
@@ -34,6 +33,9 @@ namespace hackerRank
             {
                 Console.WriteLine(item);
             }
+            Console.WriteLine(new string(str));
+
+
         }
 
 
@@ -94,15 +96,15 @@ namespace hackerRank
             return a;
         }
 
-
+        //Revision required
         public static void Rotation()
         {
 
-            int[][] a = new int[][] {new int[]{ 0,1,2,3,4 },
-                                     new int[]{ 5,6,7,8,9 },
+            int[][] a = new int[][] {new int[]{ 0, 1, 2, 3, 4 },
+                                     new int[]{ 5, 6, 7, 8, 9 },
                                      new int[]{ 10,11,12,13,14 },
                                      new int[]{ 15,16,17,18,19 },
-                                     new int[]{ 20,21,22,23,24 }};
+                                     new int[]{ 20,21,22,23,24 }};      
 
             int[][] b = new int[][] {new int[]{ 1,2,3 },
                                      new int[]{ 4,5,6 },
@@ -110,15 +112,56 @@ namespace hackerRank
 
 
 
+            //Original
+            for (int i = 0; i < a.Length; i++)
+            {
+                for (int j = 0; j < a.Length; j++)
+                {
+                    Console.Write(a[i][j] + " ");
+                }
+                Console.WriteLine();
+            }
+
             int layer_count = a.GetLength(0) / 2;
             for (int layer = 0; layer < layer_count; layer++)
             {
-                int first = layer;
-                int last = a.GetLength(0) - first - 1;
+                int last = a.GetLength(0) - layer - 1;
                 Console.WriteLine("Layer {0}, first {1}, last {2}",
-                                    layer, first, last);
+                                    layer, layer, last);
+
+                for (int j = layer; j < last; j++)
+                {
+                    int offset = j - layer;
+                    Console.WriteLine("J:{0}, Offset:{1} ", j,offset );
 
 
+
+                    /*
+                    //int top = a[layer][j];
+                    //top -> right
+                    a[j][last] = top;
+                    //right -> bottom
+                    a[last][last - offset] = a[j][last];
+                    // bottom -> left
+                    a[last - offset][layer] = a[last][last - offset];
+                    //left -> top
+                    a[layer][j] = a[last - offset][layer];
+                    */
+
+                    int top = a[layer][j];
+                    int right_side = a[j][last];
+                    int bottom = a[last][last-offset];
+                    int left_side = a[last-offset][last];
+
+                    a[layer][j] = left_side;
+                    a[j][last] = top;
+                    a[last][last-offset] = right_side;
+                    a[last-offset][layer] = bottom;
+
+
+                }
+
+                /*
                 int top_left = a[first][first];
                 int top_right = a[first][last];
                 int bottom_right = a[last][last];
@@ -128,23 +171,74 @@ namespace hackerRank
                 a[first][last] = top_left;
                 a[last][last] = top_right;
                 a[last][first] = bottom_right;
-
-                for (int i = 0; i < a.Length; i++)
-                {
-                    for (int j = 0; j < a.Length; j++)
-                    {
-                        Console.Write(a[i][j] + " ");
-                    }
-                    Console.WriteLine();
-                }
-
-
+                */
             }
 
-
+            //Rotated Matrix
+            for (int i = 0; i < a.Length; i++)
+            {
+                for (int j = 0; j < a.Length; j++)
+                {
+                    Console.Write(a[i][j] + " ");
+                }
+                Console.WriteLine();
+            }
 
         }
 
+
+        public static void Matrix0()
+        {
+            int[][] a = new int[][] {new int[]{ 0, 1, 2, 3, 4 },
+                                     new int[]{ 5, 6, 7, 8, 9 },
+                                     new int[]{ 10,11,0,13,14 },
+                                     new int[]{ 15,16,17,18,19},
+                                     //new int[]{ 20,21,22,23,24}
+                                     };
+
+            /*
+            Console.WriteLine(a[0].Length); // row
+            Console.WriteLine(a.Length);    // column
+            */
+
+            int[] whichColumn = new int[a.Length];
+            
+
+            for (int i = 0; i < a.Length; i++)
+            {
+                for (int j = 0; j < a[0].Length; j++)
+                {
+                    if(a[i][j] == 0)
+                    {
+                        whichColumn[i] = 1;
+                    }
+                }
+            }
+
+            foreach (var item in whichColumn)
+            {
+                Console.WriteLine(item);
+            }
+
+            for (int i = 0; i < a.Length; i++)
+            {
+                for (int j = 0; j < a[0].Length; j++)
+                {
+                    if(whichColumn[i] == 1)
+                    {
+                        a[i][j] = 0;
+                        Console.Write(a[i][j] + " ");
+                    }
+                    else
+                    {
+                        Console.Write(a[i][j] + " ");
+                    }
+                }
+                Console.WriteLine();
+            }
+
+
+        }
 
     }
 }
