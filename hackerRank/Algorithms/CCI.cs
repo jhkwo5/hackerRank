@@ -38,7 +38,6 @@ namespace hackerRank
 
         }
 
-
         public static Boolean Anagram(string s, string t)
         {
             char[] sChar = s.ToCharArray();
@@ -186,7 +185,6 @@ namespace hackerRank
 
         }
 
-
         public static void Matrix0()
         {
             int[][] a = new int[][] {new int[]{ 0, 1, 2, 3, 4 },
@@ -238,6 +236,29 @@ namespace hackerRank
             }
 
 
+        }
+        
+        //Non-sense 
+        public static Boolean isRotation()
+        {
+            string s1 = "apple";
+            string s2 = "pleap";
+
+            if (s1.Length == s2.Length && s1.Length > 0)
+            {
+                string s1s2 = s1 + s2;
+                
+                for (int i = 0; i < (s1s2.Length - s1.Length); i++)
+                {
+                    if(s1.Equals(s1s2.Substring(i, i + s1.Length)))
+                    {
+                        return true;
+                    }
+
+                }
+            }
+
+            return false;
         }
 
     }
